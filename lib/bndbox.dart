@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'models.dart';
+import 'models.dart';
 
 class BndBox extends StatelessWidget {
   final List<dynamic> results;
@@ -135,7 +136,7 @@ class BndBox extends StatelessWidget {
     }
 
     return Stack(
-      children: model == mobilenet
+      children: model == mobilenet || model == teachable
           ? _renderStrings()
           : model == posenet
               ? _renderKeypoints()

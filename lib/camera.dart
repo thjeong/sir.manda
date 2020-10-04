@@ -45,7 +45,7 @@ class _CameraState extends State<Camera> {
 
             int startTime = new DateTime.now().millisecondsSinceEpoch;
 
-            if (widget.model == mobilenet) {
+            if (widget.model == mobilenet || widget.model == teachable) {
               Tflite.runModelOnFrame(
                 bytesList: img.planes.map((plane) {
                   return plane.bytes;

@@ -5,8 +5,8 @@ import 'dart:math' as math;
 
 import 'camera.dart';
 import 'bndbox.dart';
-import 'stars.dart';
 import 'models.dart';
+import 'stars.dart';
 
 class HomePage extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   List<dynamic> _recognitions;
   int _imageHeight = 0;
   int _imageWidth = 0;
-  String _model = mobilenet;
+  String _model = teachable;
 
   @override
   void initState() {
@@ -48,6 +48,13 @@ class _HomePageState extends State<HomePage> {
       case posenet:
         res = await Tflite.loadModel(
             model: "assets/posenet_mv1_075_float_from_checkpoints.tflite");
+        break;
+
+      case teachable:
+        res = await Tflite.loadModel(
+          model: "assets/teachable_tflite_20201004.tflite",
+          labels: "assets/teachable_tflite_20201004.txt",
+        );
         break;
 
       default:
