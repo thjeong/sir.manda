@@ -31,6 +31,8 @@ Future<Null> main() async {
 }
 
 class MyApp extends StatelessWidget {
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -45,5 +47,9 @@ class MyApp extends StatelessWidget {
         body: HomePage(cameras),
       ),
     );
+  }
+
+  void showInSnackBar(String message) {
+    scaffoldKey.currentState.showSnackBar(SnackBar(content: Text(message)));
   }
 }
